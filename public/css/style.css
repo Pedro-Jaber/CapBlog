@@ -1,0 +1,40 @@
+:root {
+  --purple: #6c17ac;
+  --purple-dark: #4B1078;
+  --purple-light: #8B4FB9;
+  --black-v1: #2D2727;
+  --black-light: #413543;
+  --reddit-black-dark: #030303;
+  --reddit-black-mid: #161617;
+  --reddit-black-light: #1a1a1b;
+}
+
+/*A B C D E F G H I J K L M N O P Q R S T U V W X Y Z*/
+
+.main-box {
+  width: 100%;
+  padding: 0 16px;
+  margin: 0 auto;
+  max-width: 1274px;
+}
+
+@media (min-width: 400px) {
+  .main-box {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 600px) {
+  .main-box {
+    padding-left: 66px;
+    padding-right: 66px;
+  }
+}
+
+@media (min-width: 840px) {
+  .main-box {
+    padding-left: 125px;
+    padding-right: 125px;
+  }
+}
