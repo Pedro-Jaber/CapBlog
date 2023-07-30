@@ -85,8 +85,6 @@ router.post("/search", async (req, res) => {
     });
 
     res.render("search-results", { locals, data });
-
-    res.send(searchTerm);
   } catch (error) {
     console.log(error);
   }
