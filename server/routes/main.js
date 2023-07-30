@@ -28,9 +28,8 @@ router.get("/", async (req, res) => {
 
     const countOfPosts = await Post.count(); // Conta a quantidade de Posts
     const nextPage = parseInt(page) + 1; // Adiquire o numero da prox página para ser usado no botão
-    const totalOfPages = Math.ceil(countOfPosts / postPerPage); // conta a quantidade de páginas 
+    const totalOfPages = Math.ceil(countOfPosts / postPerPage); // conta a quantidade de páginas
     const hasNextPage = nextPage <= totalOfPages; // Verifica se ha uma nova página (valores: true || false)
-
 
     res.render("index", {
       locals,
@@ -43,9 +42,65 @@ router.get("/", async (req, res) => {
   }
 });
 
+/**
+ * GET /
+ * Post :id
+ */
+router.get("/post/:id", async (req, res) => {
+  try {
+    let slug = req.params.id;
+
+    const data = await Post.findById({ _id: slug });
+
+    const locals = {
+      title: data.title,
+      body: "Simple Blog created with NodeJs, Express & MongoDb.",
+    };
+
+    res.render("post", { locals, data });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+/**
+ * POST /
+ * Post - searchTerm
+ */
+router.post("/search", async (req, res) => {
+  try {
+    const locals = {
+      title: "CapBlog",
+      body: "Simple Blog created with NodeJs, Express & MongoDb.",
+    };
+
+    let searchTerm = req.body.searchTerm;
+    const searchNoSpecialChar = searchTerm.replace(/[^a-zA-Z0-9 ]/g, "");
+
+    const data = await Post.find({
+      $or: [
+        { title: { $regex: new RegExp(searchNoSpecialChar, "i") } },
+        { body: { $regex: new RegExp(searchNoSpecialChar, "i") } },
+      ],
+    });
+
+    res.render("search-results", { locals, data });
+
+    res.send(searchTerm);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+/**
+ * GET /
+ * About
+ */
 router.get("/about", (req, res) => {
   res.render("about");
 });
+//
+//
 //
 //
 //

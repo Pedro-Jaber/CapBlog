@@ -12,6 +12,10 @@ const PORT = 8081;
 // Connect to DB
 connectDB();
 
+// Middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 // Public
 app.use(express.static('public'));
 
