@@ -364,6 +364,9 @@ img {
   padding: 10px 0;
 }
 
+.no-decoration {
+  text-decoration: none
+}
 
 
 

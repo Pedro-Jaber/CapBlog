@@ -36,6 +36,7 @@ router.get("/", async (req, res) => {
       data,
       current: page,
       nextPage: hasNextPage ? nextPage : null,
+      currentRoute: '/'
     });
   } catch (error) {
     console.log(error);
@@ -57,7 +58,7 @@ router.get("/post/:id", async (req, res) => {
       body: "Simple Blog created with NodeJs, Express & MongoDb.",
     };
 
-    res.render("post", { locals, data });
+    res.render("post", { locals, data, currentRoute: `/post/&{slug}` });
   } catch (error) {
     console.log(error);
   }
@@ -95,7 +96,7 @@ router.post("/search", async (req, res) => {
  * About
  */
 router.get("/about", (req, res) => {
-  res.render("about");
+  res.render("about", { currentRoute: '/about' });
 });
 //
 //
