@@ -296,16 +296,19 @@ img {
 }
 
 .article-ul li:hover {
-  filter: none;
+  /* filter: none; */
+  text-shadow: rgba(0, 0, 0, 0.3) 0px 0px 1px;
 }
 
-.article-ul:hover li {
+/* .article-ul:hover li {
   filter: blur(3px);
-}
+  text-shadow: #030303 1px 1px 1px;
+} */
 
-.article-ul:hover li:hover {
+/* .article-ul:hover li:hover {
   filter: none;
-}
+  text-shadow: #000 0px 0px 0px;
+} */
 
 .pagination {
   font-size: 1.3rem;
