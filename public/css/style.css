@@ -75,6 +75,14 @@ img {
   padding: 0 10px;
 }
 
+.disable {
+  color: var(--gray);
+}
+
+.disable:hover {
+  text-decoration: none !important;
+}
+
 .main {
   padding: 20px 0;
 }
