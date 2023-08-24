@@ -4,8 +4,8 @@
   "description": "uma rede social feita em nodejs",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "app.js"
+    "dev": "nodemon app.js",
+    "start": "node app.js"
   },
   "author": "Pedro Jaber",
   "license": "ISC",
